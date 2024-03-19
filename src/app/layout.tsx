@@ -6,6 +6,7 @@ import { repositoryName } from '@/prismicio';
 import { cn } from '@/lib/utils';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -20,10 +21,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <PrismicPreview repositoryName={repositoryName} />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <PrismicPreview repositoryName={repositoryName} />
+        </ThemeProvider>
       </body>
     </html>
   );

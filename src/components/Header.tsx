@@ -1,3 +1,12 @@
+import WordMark from '@/components/WordMark';
+import { ThemeToggleButton } from './ThemeToggleButton';
+
 export default function Header() {
-  return <div>Header</div>;
+  return (
+    <div>
+      <WordMark />
+      <ThemeToggleButton />
+      Header
+    </div>
+  );
 }
