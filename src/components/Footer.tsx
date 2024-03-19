@@ -9,7 +9,7 @@ export default async function Footer() {
   const settings = await client.getSingle("settings");
 
   return (
-    <footer className="flex flex-col items-center justify-between gap-6 border-t border-muted px-8 py-7 md:flex-row">
+    <footer className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 border-t border-muted py-7 md:flex-row">
       <div className="flex flex-col items-center gap-6 md:flex-row md:gap-12">
         <Link href="/">
           <span className="sr-only">Back to the home page</span>
