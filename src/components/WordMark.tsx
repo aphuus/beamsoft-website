@@ -1,6 +1,7 @@
 export default function WordMark() {
   return (
     <svg
+      className="w-36"
       xmlns="http://www.w3.org/2000/svg"
       width="301"
       height="57"

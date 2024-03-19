@@ -1,12 +1,13 @@
-import WordMark from '@/components/WordMark';
-import { ThemeToggleButton } from './ThemeToggleButton';
+import { createClient } from "@/prismicio";
+import Navbar from "@/components/Navbar";
 
-export default function Header() {
+export default async function Header() {
+  const client = createClient();
+  const settings = await client.getSingle("settings");
+
   return (
-    <div>
-      <WordMark />
-      <ThemeToggleButton />
-      Header
-    </div>
+    <header>
+      <Navbar settings={settings} />
+    </header>
   );
 }
