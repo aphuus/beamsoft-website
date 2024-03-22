@@ -1,11 +1,12 @@
-import * as prismic from '@prismicio/client';
-import * as prismicNext from '@prismicio/next';
-import config from '../slicemachine.config.json';
+import * as prismic from "@prismicio/client";
+import * as prismicNext from "@prismicio/next";
+import config from "../slicemachine.config.json";
 
 /**
  * The project's Prismic repository name.
  */
-export const repositoryName = process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || config.repositoryName;
+export const repositoryName =
+  process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || config.repositoryName;
 
 /**
  * A list of Route Resolver objects that define how a document's `url` field is resolved.
@@ -13,16 +14,20 @@ export const repositoryName = process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || con
  * {@link https://prismic.io/docs/route-resolver#route-resolver}
  */
 
-const routes: prismic.ClientConfig['routes'] = [
+const routes: prismic.ClientConfig["routes"] = [
   {
-    type: 'page',
-    path: '/:uid'
+    type: "page",
+    path: "/:uid",
   },
   {
-    type: 'page',
-    uid: 'home',
-    path: '/'
-  }
+    type: "page",
+    uid: "home",
+    path: "/",
+  },
+  {
+    type: "case_study",
+    path: "/case-study/:uid",
+  },
 ];
 
 /**
@@ -35,16 +40,16 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
   const client = prismic.createClient(repositoryName, {
     routes,
     fetchOptions:
-      process.env.NODE_ENV === 'production'
-        ? { next: { tags: ['prismic'] }, cache: 'force-cache' }
+      process.env.NODE_ENV === "production"
+        ? { next: { tags: ["prismic"] }, cache: "force-cache" }
         : { next: { revalidate: 5 } },
-    ...config
+    ...config,
   });
 
   prismicNext.enableAutoPreviews({
     client,
     previewData: config.previewData,
-    req: config.req
+    req: config.req,
   });
 
   return client;

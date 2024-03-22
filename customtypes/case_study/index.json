@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "page",
-  "label": "Page",
+  "id": "case_study",
+  "label": "Case Study",
   "repeatable": true,
   "status": true,
   "json": {
@@ -12,13 +12,30 @@
         },
         "type": "UID"
       },
-      "title": {
+      "company": {
         "type": "StructuredText",
         "config": {
-          "label": "Title",
+          "label": "Company",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "single": "heading1"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "logo_image": {
+        "type": "Image",
+        "config": {
+          "label": "Logo Image",
+          "constraint": {},
+          "thumbnails": []
         }
       },
       "slices": {
@@ -26,18 +43,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "case_studies": {
-              "type": "SharedSlice"
-            },
-            "showcase": {
-              "type": "SharedSlice"
-            },
-            "bento": {
-              "type": "SharedSlice"
-            },
-            "hero": {
-              "type": "SharedSlice"
-            },
             "rich_text": {
               "type": "SharedSlice"
             }
@@ -46,9 +51,9 @@
       }
     },
     "SEO & Metadata": {
-      "meta_title_tag": {
+      "meta_title": {
         "config": {
-          "label": "Meta Title Tag",
+          "label": "Meta Title",
           "placeholder": "A title of the page used for social media and search engines"
         },
         "type": "Text"
