@@ -27,7 +27,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="relative"
     >
-      <div className="glow absolute -z-10 aspect-square w-full max-w-xl rounded-full bg-blue-400/30 blur-3xl filter dark:bg-blue-400/20" />
+      <div className="glow absolute -z-10 aspect-square w-full max-w-xl rounded-full bg-blue-200/30 blur-3xl filter dark:bg-blue-500/20" />
 
       <PrismicRichText
         field={slice.primary.heading}
