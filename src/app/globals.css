@@ -87,12 +87,12 @@
 .signal-line {
   --rotation: 90deg;
   @apply h-[20px] w-[1.5px] bg-gradient-to-t md:h-[1.5px] md:w-[30px] lg:w-[40px] xl:w-[50px];
-  background-color: var(--background / 1);
+  background-color: hsla(0, 0%, 100%, 0.1);
   background-image: linear-gradient(
     var(--rotation),
-    --background 50%,
-    --foreground 50%,
-    --background 70%
+    rgba(255, 255, 255, 0) 50%,
+    #bfdbfe 50%,
+    rgba(255, 255, 255, 0) 70%
   );
   background-size: 400% 400%;
 }

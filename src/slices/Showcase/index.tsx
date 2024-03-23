@@ -39,7 +39,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
           ),
         }}
       />
-      <div className="mt-16 grid items-center rounded-xl border border-muted-foreground/20 bg-gradient-to-b from-muted-foreground/15 to-foreground/5 px-8 py-8 backdrop-blur-sm dark:border-blue-50/20 lg:grid-cols-3 lg:py-12">
+      <div className="mt-16 grid items-center gap-8 rounded-xl border border-muted-foreground/20 bg-gradient-to-b from-muted-foreground/15 to-foreground/5 px-8 py-8 backdrop-blur-sm dark:border-blue-50/20 lg:grid-cols-3 lg:gap-0 lg:py-12">
         <div>
           <div className="w-fit rounded-lg bg-blue-500/30 p-4 text-3xl">
             <>{slice.primary.icon && icons[slice.primary.icon]}</>
@@ -49,7 +49,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
             <PrismicRichText field={slice.primary.subheading} />
           </div>
 
-          <div className="prose dark:prose-invert mt-4">
+          <div className="prose mt-4 dark:prose-invert">
             <PrismicRichText field={slice.primary.body} />
           </div>
 
