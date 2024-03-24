@@ -1,8 +1,100 @@
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
+
 export default function StarGrid() {
+  const container = useRef(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
+  gsap.registerPlugin(useGSAP);
+
   const grid = [14, 30] as const;
+
+  useGSAP(
+    () => {
+      gsap.set(".star-grid-item", {
+        opacity: 0,
+        transformOrigin: "center",
+        color: "currentColor",
+      });
+      gsap.set(container.current, { opacity: 1 });
+
+      const tl = gsap.timeline();
+      // Entrance animation
+      tl.to(".star-grid-item", {
+        keyframes: [
+          { opacity: 0, duration: 0 },
+          {
+            opacity: 0.4,
+            rotate: "+=180",
+            color: "#ffd057",
+            scale: 3,
+            duration: 0.6,
+            stagger: {
+              amount: 3,
+              grid: grid,
+              from: "center",
+            },
+          },
+          {
+            opacity: 0.2,
+            rotate: "+=180",
+            color: "currentColor",
+            scale: 1,
+            delay: -3,
+            duration: 0.6,
+            stagger: {
+              amount: 3,
+              grid: grid,
+              from: "center",
+            },
+          },
+        ],
+      });
+
+      // Loop animation
+      tl.to(".star-grid-item", {
+        delay: 6,
+        repeat: -1,
+        repeatDelay: 6,
+
+        keyframes: [
+          {
+            opacity: 0.4,
+            rotate: "+=180",
+            color: "#ffd057",
+            scale: 3,
+            duration: 0.6,
+            stagger: {
+              amount: 3,
+              grid: grid,
+              from: "center",
+            },
+          },
+          {
+            opacity: 0.2,
+            rotate: "+=180",
+            color: "currentColor",
+            scale: 1,
+            delay: -3,
+            duration: 0.6,
+            stagger: {
+              amount: 3,
+              grid: grid,
+              from: "center",
+            },
+          },
+        ],
+      });
+    },
+    { scope: container },
+  );
 
   return (
     <svg
+      ref={container}
+      opacity={0}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 935 425"
