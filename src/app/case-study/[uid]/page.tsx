@@ -7,6 +7,7 @@ import { components } from "@/slices";
 import Bounded from "@/components/Bounded";
 import StarGrid from "@/components/StarGrid";
 import { PrismicNextImage } from "@prismicio/next";
+import { asText } from "@prismicio/client";
 
 type Params = { uid: string };
 
@@ -51,8 +52,8 @@ export async function generateMetadata({
     .catch(() => notFound());
 
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    title: `${page.data.meta_title || asText(page.data.company) + " Case Study | Beamsoft"}`,
+    description: `${page.data.meta_description || "Read more about our past case study with " + asText(page.data.company) + " and how we helped them achieve their goals."}`,
   };
 }
 
