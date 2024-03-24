@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import AnimatedContent from "./AnimatedContent";
 
 const icons = {
   settings: <Settings className="h-6 w-6" />,
@@ -29,16 +30,19 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
     >
       <div className="glow absolute -z-10 aspect-square w-full max-w-xl rounded-full bg-blue-200/30 blur-3xl filter dark:bg-blue-500/20" />
 
-      <PrismicRichText
-        field={slice.primary.heading}
-        components={{
-          heading2: ({ children }) => (
-            <h2 className="text-balance text-5xl font-medium md:text-7xl">
-              {children}
-            </h2>
-          ),
-        }}
-      />
+      <AnimatedContent>
+        <PrismicRichText
+          field={slice.primary.heading}
+          components={{
+            heading2: ({ children }) => (
+              <h2 className="text-balance text-5xl font-medium md:text-7xl">
+                {children}
+              </h2>
+            ),
+          }}
+        />
+      </AnimatedContent>
+
       <div className="mt-16 grid items-center gap-8 rounded-xl border border-muted-foreground/20 bg-gradient-to-b from-muted-foreground/15 to-foreground/5 px-8 py-8 backdrop-blur-sm dark:border-blue-50/20 lg:grid-cols-3 lg:gap-0 lg:py-12">
         <div>
           <div className="w-fit rounded-lg bg-blue-500/30 p-4 text-3xl">

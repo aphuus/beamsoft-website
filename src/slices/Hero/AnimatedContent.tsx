@@ -94,6 +94,7 @@ export default function AnimatedContent({
         <div className="hero__image glass-container mt-16 w-fit opacity-0">
           <div className="hero__glow absolute inset-0 -z-10 bg-blue-500/30 opacity-0 blur-xl filter" />
           <PrismicNextImage
+            priority={true}
             className="rounded-lg"
             field={slice.primary.image}
           />
